@@ -1,4 +1,1 @@
-Lab
-===
-
-Javascript (plain or jQuery) experiments, plugins etc.
+This projec is still WIP, I'll add some documentation soon.

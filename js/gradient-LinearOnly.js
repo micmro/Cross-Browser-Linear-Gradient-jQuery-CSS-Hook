@@ -68,7 +68,6 @@
     },
     linearFilterSettings = function (value) {
         var parts = rLinearSettings.exec(value)[4].replace(/\s\d*%?/g, "").split(",");
-        console.log(parts);
         return "progid:DXImageTransform.Microsoft.Gradient(GradientType=" + (parts[0] == "top" ? 0 : 1) + ",startColorstr=" + toHex6Color(parts[1]) + ", endColorstr=" + toHex6Color(parts[parts.length - 1]) + ")";
     },
     toHex6Color = function (hex) {

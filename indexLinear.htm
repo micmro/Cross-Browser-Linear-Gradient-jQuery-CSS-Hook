@@ -5,34 +5,189 @@
     <title></title>
 
     <style type="text/css">
-        div {height:250px; border:3px solid #fcc; margin:0 0 15px; -moz-border-radius: 10px; -webkit-border-radius: 10px; border-radius: 10px; }
-        #test2 {width:250px;}
+        body {font:normal 1em/1.2em "Segoe UI", Segoe, Tahoma, Geneva, sans-serif; color:#333; margin:15px 25px;}
+        h1 {font-weight:normal; margin:1em 0; font-size:2em; line-height:1.2em;}
+        .tests {margin:50px 0; max-width:500px;}
+        .tests .test {height:150px; text-align:center; border:3px solid #ccc; margin:25px 0 0; -moz-border-radius: 10px; -webkit-border-radius: 10px; border-radius: 10px; }
+        .tests .test span {background:#fff; background:rgba(255, 255, 255, 0.5); font-size:10px; display:inline-block; padding:2px 15px 4px; -webkit-border-bottom-right-radius: 10px; -webkit-border-bottom-left-radius: 10px; -moz-border-radius-bottomright: 10px; -moz-border-radius-bottomleft: 10px; border-bottom-right-radius: 10px; border-bottom-left-radius: 10px; }
+        #testCase7B {width:250px; height:250px;}
+        .hide{display:none;} /*to hide tests that are done*/
+        .support {line-height:34px; margin:2px 0 5px;}
+        .ff,.chrome,.safari,.opera,.ie,.ie6to8,.ie9,.ie10 {display:inline-block; vertical-align:top; width:34px; font-size:10px; height:24px; padding-top:20px; text-align:center; font-weight:bold; color:#024476; background:url(browser_logos-32.png) 0 0 no-repeat;}
+        .ff {background-position: -37px 0;}
+        .chrome {background-position: -1px 0;}
+        .safari {background-position: -107px 0;}
+        .opera {background-position: -73px 0;}
+        .ie {background-position: -143px 0;}
     </style>
 </head>
 <body>
-<h1>linear gradient jQuery css hook</h1>
-<div id="test1">
+<h1>Linear-gradient jQuery CSS Hook Tests</h1>
 
+Support limitations:
+<ul>
+   <li>Degrees (90deg) currently don't work properly in SVG (IE9) gradients - they strech, so the angle is only correct for squares</li>
+   <li>Degrees are not supported in the legacy Webkit (could work around it with percentage, but that's not worth the bytes)</li>
+   <li>Color names (red, green, blue...) are not supported</li>
+   <li>The MS filter only supports 2 colors and top or left, so it will fall back to top and the first and last color if parameter are not supportet</li>
+</ul>
+<p>Current Gradient Prefix/Technology: <strong id="currGradient"></strong></p>
+<div class="tests">
+    <div id="testCase1A" class="test">
+        <span>Linear top to bottom 2 colors</span>
+    </div>
+    <div class="support">
+        Support:
+        <span class="ff"></span>
+        <span class="chrome"></span>
+        <span class="ie">6+</span>
+        <span class="safari"></span>
+        <span class="opera"></span>
+    </div>
 
-</div>
-<div id="test2">
+    <div id="testCase1B" class="test">
+        <span>Linear top to bottom 2 colors (simple syntax linear-gradient(#0000ff, #00ff00))</span>
+    </div>
+    <div class="support">
+        Support:
+        <span class="ff"></span>
+        <span class="chrome"></span>
+        <span class="ie">6+</span>
+        <span class="safari"></span>
+        <span class="opera"></span>
+    </div>
 
+    <div id="testCase2A" class="test">
+        <span>Linear top to bottom 3+ color</span>
+    </div>
+    <div class="support">
+        Support:
+        <span class="ff"></span>
+        <span class="chrome"></span>        
+        <span class="ie">9+</span>
+        <span class="safari"></span>
+        <span class="opera"></span>
+    </div>
 
-</div>
-<div id="test3">
+    <div id="testCase2B" class="test">
+        <span>Linear top to bottom 3+ color (simple syntax without Stop-Point position)</span>
+    </div>
+    <div class="support">
+        Support:
+        <span class="ff"></span>
+        <span class="chrome"></span>        
+        <span class="ie">9+</span>
+        <span class="safari"></span>
+        <span class="opera"></span>
+    </div>
 
+    <div id="testCase2C" class="test">
+        <span>Linear top to bottom 3+ color (px instead of % for Stop-Point position)</span>
+    </div>
+    <div class="support">
+        Support:
+        <span class="ff"></span>
+        <span class="chrome">10+</span>        
+        <span class="ie">9+</span>
+        <span class="safari">5.1+</span>
+        <span class="opera"></span>
+    </div>
 
-</div>
-<div id="test4">
+    <div id="testCase3" class="test">
+        <span>Linear left to right 2 colors</span>
+    </div>
+    <div class="support">
+        Support:
+        <span class="ff"></span>
+        <span class="chrome"></span>
+        <span class="ie">6+</span>
+        <span class="safari"></span>
+        <span class="opera"></span>
+    </div>
 
+    <div id="testCase4" class="test">
+        <span>Linear left to right 3+ color</span>
+    </div>
+    <div class="support">
+        Support:
+        <span class="ff"></span>
+        <span class="chrome"></span>        
+        <span class="ie">9+</span>
+        <span class="safari"></span>
+        <span class="opera"></span>
+    </div>
 
-</div>
-<div id="test5">
+    <div id="testCase5" class="test">
+        <span>linear with 2 StartingPoint Arguments (e.g. bottom right) 2 color</span>
+    </div>
+    <div class="support">
+        Support:
+        <span class="ff"></span>
+        <span class="chrome"></span>
+        <span class="ie">9+</span>
+        <span class="safari"></span>
+        <span class="opera"></span>
+    </div>
 
+    <div id="testCase6" class="test">
+        <span>linear with 2 StartingPoint Arguments (e.g. bottom right) 3+ color</span>
+    </div>
+    <div class="support">
+        Support:
+        <span class="ff"></span>
+        <span class="chrome"></span>
+        <span class="ie">9+</span>
+        <span class="safari"></span>
+        <span class="opera"></span>
+    </div>
 
-</div>
-<div id="test6">
+    <div id="testCase7A" class="test">
+        <span>linear with angle in degrees 2 colors</span>
+    </div>
+    <div class="support">
+        Support:
+        <span class="ff"></span>
+        <span class="chrome"></span>
+        <span class="ie">9+</span>
+        <span class="safari"></span>
+        <span class="opera"></span>
+    </div>
 
+    <div id="testCase7B" class="test">
+        <span>linear with angle in degrees 2 colors (as square)</span>
+    </div>
+    <div class="support">
+        Support:
+        <span class="ff"></span>
+        <span class="chrome">10+</span>
+        <span class="ie">9+</span>
+        <span class="safari">5.1+</span>
+        <span class="opera"></span>
+
+    </div>
+    <div id="testCase7C" class="test">
+        <span>linear with angle in degrees 2 colors (negative angle -90deg = 270deg)</span>
+    </div>
+    <div class="support">
+        Support:
+        <span class="ff"></span>
+        <span class="chrome">10+</span>
+        <span class="ie">9+</span>
+        <span class="safari">5.1+</span>
+        <span class="opera"></span>
+    </div>
+
+    <div id="testCase8" class="test">
+        <span>linear with angle in degrees 3+ color</span>
+    </div>
+    <div class="support">
+        Support:
+        <span class="ff"></span>
+        <span class="chrome">10+</span>
+        <span class="ie">9+</span>
+        <span class="safari">5.1+</span>
+        <span class="opera"></span>
+    </div>
 
 </div>
 
@@ -41,15 +196,50 @@
 <!--[if IE 9]>
     <script src="js/Base64.min.js" type="text/javascript"></script>
 <![endif]-->
-<script src="js/gradient-LinearOnly.js" type="text/javascript"></script>
+<script src="js/gradient-LinearOnly.min.js" type="text/javascript"></script>
 <script type="text/javascript">
     (function ($) {
-        $('#test1').css("background", "linear-gradient(top, #ff0000 0%, #0000ff 25%, #00ff00 100%)");
-        $('#test2').css("background", "linear-gradient(left, #ffcccc, #cccccc)");
-        $('#test3').css("background", "linear-gradient(right, #ff0000 0%, #0000ff 25%, #00ff00 100%)");
-        $('#test4').css("background", "linear-gradient(#ff0000 0%, #0000ff 25%, #00ff00 100%)");
-        $('#test5').css("background", "linear-gradient(right, #ff0000 0%, #0000ff 25%, #00ff00 100%)");
-        $('#test6').css("background", "linear-gradient(-45deg, #ff0000 0%, #0000ff 25%, #00ff00 100%)");
+
+        $("#currGradient").text($.support.linearGradient);
+
+        //Linear top to bottom 2 colors
+        $("#testCase1A").css("background", "linear-gradient(top, #0000ff 0%, #00ff00 100%)");
+
+        //Linear top to bottom 2 colors (simple syntax linear-gradient(#0000ff, #00ff00))
+        $("#testCase1B").css("background", "linear-gradient(#0000ff, #00ff00)");
+
+        //Linear top to bottom 3+ color
+        $("#testCase2A").css("background", "linear-gradient(top, #ff0000 0%, #000000 25%, #ffffff 100%)");
+
+        //Linear top to bottom 3+ color (simple syntax without Stop-Point position)
+        $("#testCase2B").css("background", "linear-gradient(top, #ff0000, #000000, #ffffff)");
+
+        //Linear top to bottom 3+ color (px instead of % for Stop-Point position)
+        $("#testCase2C").css("background", "linear-gradient(top, #ff0000 0px, #000000 10px, #ffffff 50px)");
+
+        //Linear left to right 2 colors
+        $("#testCase3").css("background", "linear-gradient(left, #0000ff 0%, #00ff00 100%)");
+
+        //Linear left to right 3+ color
+        $("#testCase4").css("background", "linear-gradient(left, #ff0000 0%, #000000 25%, #ffffff 100%)");
+
+        //linear with 2 StartingPoint Arguments (e.g. bottom right) 2 color
+        $("#testCase5").css("background", "linear-gradient(bottom right, #0000ff 0%, #00ff00 100%)");
+
+        //linear with 2 StartingPoint Arguments (e.g. bottom left) 3+ color
+        $("#testCase6").css("background", "linear-gradient(bottom right, #ff0000 0%, #000000 25%, #ffffff 100%)");
+
+        //linear with angle in degrees 2 colors
+        $("#testCase7A").css("background", "linear-gradient(45deg, #0000ff 0%, #00ff00 100%)");
+
+        //linear with angle in degrees 2 colors (as square - svg angle test)
+        $("#testCase7B").css("background", "linear-gradient(45deg, #0000ff 0%, #00ff00 100%)");
+
+        //linear with angle in degrees 2 colors (negative angle -90deg = 270deg)
+        $("#testCase7C").css("background", "linear-gradient(-90deg, #0000ff 0%, #00ff00 100%)");
+
+        //linear with angle in degrees 3+ color
+        $("#testCase8").css("background", "linear-gradient(45deg, #ff0000 0%, #000000 25%, #ffffff 100%)");
     })(jQuery);
 </script>
 </body>
